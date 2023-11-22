@@ -22,7 +22,6 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain;
 
     Command autonomousCommand;
-    Command gasGo;
 
     public static XboxController xbox = new XboxController(0);
 
@@ -34,7 +33,6 @@ public class Robot extends TimedRobot {
       shooter = new Shooter();
       barrel = new Barrel();
       drivetrain = new Drivetrain();
-      gasGo = new Joyride();
 
       //SmartDashboard.putNumber("Driving Speed", Drivetrain.DEFAULT_SPEED);
     }
@@ -77,7 +75,7 @@ public class Robot extends TimedRobot {
     }
 
     public void teleopInit() {
-      CommandScheduler.getInstance().schedule(gasGo);
+      CommandScheduler.getInstance().schedule(new Joyride());
       /* what is this
       SmartDashboard.putData(new Shoot());
       SmartDashboard.putData("Rotate Left", new RotateBarrel(XAxisRelativeDirection.LEFT));
@@ -98,6 +96,7 @@ public class Robot extends TimedRobot {
         CommandScheduler.getInstance().run();
 
         //this can all be trigger commands but not doing that right now
+        
         if(xbox.getLeftBumperReleased()) {
           CommandScheduler.getInstance().schedule(new Shoot().withTimeout(0.05)); //taken from smartdashboard originally
         }

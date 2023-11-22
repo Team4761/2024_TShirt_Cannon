@@ -17,6 +17,7 @@ public class Drivetrain extends SubsystemBase {
     //its mecanum
     public void driveArcade(double trans, double rot, double strafe) {
         double speedMultiplier = 0.5;
+        
         RobotMap.robotDrive.driveCartesian(trans * speedMultiplier, strafe * speedMultiplier, rot * speedMultiplier);
     }
 

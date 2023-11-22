@@ -24,7 +24,8 @@ public class RobotMap {
 	public static Victor barrelRotationMotor = new Victor(4);
 	public static Victor barrelAngleMotor = new Victor(5);
 
-    public static Solenoid solenoid = new Solenoid(null, 0);
+	//i guessed the solenoid type its a 50/50
+    public static Solenoid solenoid = new Solenoid(PneumaticsModuleType.REVPH, 0); 
 
 	public static DigitalInput barrelLimitSwitch = new DigitalInput(4);
 	
